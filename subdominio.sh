@@ -3,7 +3,7 @@
 
 subdominios() {
     # Consulta a CRT.SH para obtener los subdominios
- while IFS= read -r domain; do
+    while IFS= read -r domain; do
             echo "Consultando crt.sh para: $domain"
             curl -s "https://crt.sh/?q=%25.${domain}&output=json" | \
                 jq -r '.[].name_value' 2>/dev/null | \
